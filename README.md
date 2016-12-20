@@ -2,6 +2,8 @@
 
 Check Plex server status (By ping and port availability) and update a web page using a BASH script.
 
+[![Plexstatus](https://raw.githubusercontent.com/JoeWalters/IMG/master/Serverstatus.PNG)][Plexstatus]
+
 
 ## Usage
 
