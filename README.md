@@ -32,6 +32,10 @@ Here's the relevant section of my index.html file that's being updated by this s
 
 Here's the HTML5 template that I'm using: https://github.com/BlackrockDigital/startbootstrap-creative
 
+## Requirements
+* BASH should be located in /bin/bash.
+* You should already have a properly configured web server (Such as Apache or Nginx).
+
 ## Info
 
 The script pings your $SERVERIP variable once and based on the results, uses `sed` to replace a line in your index.html file with the current server status. 
