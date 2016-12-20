@@ -1,6 +1,7 @@
 # PLEXSTATUS
 
-Check Plex server status and update a web page using a BASH script
+Check Plex server status (By ping and port availability) and update a web page using a BASH script.
+
 
 ## Usage
 
@@ -27,7 +28,30 @@ Here's the relevant section of my index.html file that's being updated by this s
             </div>
         </div>
     </section>
- ```
-    Here's the HTML5 template that I'm using: https://github.com/BlackrockDigital/startbootstrap-creative
-    
-    
+```
+
+Here's the HTML5 template that I'm using: https://github.com/BlackrockDigital/startbootstrap-creative
+
+## Info
+
+The script pings your $SERVERIP variable once and based on the results, uses `sed` to replace a line in your index.html file with the current server status. 
+```
+ping -c 1 $SERVERIP > /dev/null 2>&1
+if [ $? -ne 0 ]
+then
+sed -i '/Server Status/c\                    <p class="text-faded">Server Status:<font color="red">Down<\/font><\/p>' $STATUSPG
+else
+sed -i '/Server Status/c\                    <p class="text-faded">Server Status:<font color="green">Up<\/font><\/p>' $STATUSPG
+fi
+```
+
+Next, the script checks if your port is accessible using the `nc` command and uses `sed` to replace a line in your index.html file with the Plex port availablity. 
+```
+nc -z $SERVERIP $PLEXPORT
+if [ $? -ne 0 ]
+then
+sed -i '/Plex Status/c\                    <p class="text-faded">Plex Status:<font color="red">Down<\/font><\/p>' $STATUSPG
+else
+sed -i '/Plex Status/c\                    <p class="text-faded">Plex Status:<font color="green">Up<\/font><\/p>' $STATUSPG
+fi
+```
