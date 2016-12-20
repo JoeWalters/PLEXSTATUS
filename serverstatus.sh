@@ -1,5 +1,14 @@
 #!/bin/bash
 
+#################
+# serverstatus.sh
+#################
+# Check Plex server status and update a web page using a BASH script
+#
+# https://github.com/JoeWalters
+#
+#################
+
 SERVERIP=192.168.0.74 # Plex Server IP relative to where this script is running
 STATUSPG=/var/www/public_html/index.html # Web page to update 
 PLEXPORT=32400 # Plex server port relative to the system where this script runs- Typically 32400
