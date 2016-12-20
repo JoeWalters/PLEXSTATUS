@@ -27,7 +27,7 @@ Here's the relevant section of my index.html file that's being updated by this s
             </div>
         </div>
     </section>
-    ```
+ ```
     Here's the HTML5 template that I'm using: https://github.com/BlackrockDigital/startbootstrap-creative
     
     
